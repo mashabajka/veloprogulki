@@ -1,13 +1,15 @@
 const React = require('react');
 
 module.exports = function Navbar({ login}){
+return(
+<>
 
-{login ? (  
+    {login ? (  
     <nav className="navbar bg-body-tertiary">
-<div className="container-fluid" style={{backgroundColor:'lightblue'}}>
+<div className="container-fluid" style={{backgroundColor:'lightgreen'}}>
 <a className="navbar-brand me-auto p-2" href="/">
-  <img src="/image/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" />
-  Take a GIF!
+  <img src="/assets/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{marginRight:'10px'}}/>
+  Velo Trail
 </a>
 
 <a className="btn btn-outline-dark me-2 p-2" type="button" href='/logout'>Logout</a>
@@ -18,10 +20,10 @@ module.exports = function Navbar({ login}){
 </div>
 </nav>
 ) : (  <nav className="navbar bg-body-tertiary">
-<div className="container-fluid" style={{backgroundColor:'lightblue'}}>
+<div className="container-fluid" style={{backgroundColor:'lightgreen'}}>
 <a className="navbar-brand me-auto p-2" href="/">
-  <img src="/image/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" />
-  Take a GIF!
+  <img src="/assets/icon_navbar1.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{marginRight:'10px'}}/>
+  Velo Trail
 </a>
 
 
@@ -29,7 +31,7 @@ module.exports = function Navbar({ login}){
 <div id="modal-box" style={{ padding: '1rem', }}>
 <form className='logForm'>
 <button id="close-modal-btn" className="btn-close" aria-label="Закрыть" style={{ float: 'right', border: '0px'}}></button>
-  <h4 className='logErrMsg' />
+  <h6 className='logErrMsg' />
 
 <div className="mb-30">
 <label htmlFor="exampleInputEmail1" className="form-label">Ваш email</label>
@@ -41,7 +43,7 @@ module.exports = function Navbar({ login}){
 <div id="passwordHelp" className="form-text">Забыли пароль? Свяжитесь с администратором сайта.</div>
 </div>
 <div className="mb-30  form-check">
-<input type="checkbox" className="form-check-input" id="exampleCheck1" />
+<input type="checkbox" className="form-check-input" id="exampleCheckReg" />
 <label className="form-check-label" htmlFor="exampleCheck1">Согласен на обработку данных</label>
 </div>
 <button type="submit" className="btn btn-primary">Отправить</button>
@@ -55,4 +57,6 @@ module.exports = function Navbar({ login}){
 </div>
 </nav>
 )}
+</>
+)
 }

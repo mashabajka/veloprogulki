@@ -29,6 +29,10 @@ module.exports = {
       start_lon: {
         type: Sequelize.STRING,
       },
+      custom_points: {
+        allowNull: true,
+        type: Sequelize.JSON,
+      },
       finish_lat: {
         type: Sequelize.STRING,
       },

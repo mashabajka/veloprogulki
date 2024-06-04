@@ -11,8 +11,8 @@ const FileStore = require('session-file-store')(session);
 const { checkUser, secureRoute } = require('./src/middlewares/common');
 
 const dbConnectionCheck = require('./src/middlewares/dbCheck');
-// const indexRouter = require('./src/routes/index.routes');
-// const regRouter = require('./src/routes/reg.routes');
+const indexRouter = require('./src/routes/index.routes');
+const regRouter = require('./src/routes/reg.routes');
 // const loginRouter = require('./src/routes/login.routes');
 
 const app = express();
@@ -38,12 +38,12 @@ app.use(session(sessionConfig));
 app.use(dbConnectionCheck);
 
 // app.use('/login', secureRoute, loginRouter);
-// app.use('/register', secureRoute, regRouter);
-// app.use('/', checkUser, indexRouter);
+app.use('/registration', secureRoute, regRouter);
+app.use('/', indexRouter);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello World!');
+// });
 
 app.listen(PORT, () => {
   console.log(`Сервер запущен на порту ${PORT}`);
