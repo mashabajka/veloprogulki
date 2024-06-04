@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     distance: DataTypes.INTEGER,
     start_lat: DataTypes.STRING,
     start_lon: DataTypes.STRING,
+    custom_points: DataTypes.JSON,
     finish_lat: DataTypes.STRING,
     finish_lon: DataTypes.STRING,
     user_id: DataTypes.INTEGER,
