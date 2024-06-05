@@ -10,6 +10,8 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "camelcase": "off"
+        "camelcase": "off",
+        "object-curly-newline": "off",
+        "no-console": "off"
     }
 }

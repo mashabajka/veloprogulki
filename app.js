@@ -11,10 +11,11 @@ const FileStore = require('session-file-store')(session);
 const { checkUser, secureRoute } = require('./src/middlewares/common');
 
 const dbConnectionCheck = require('./src/middlewares/dbCheck');
-const indexRouter = require('./src/routes/index.router');
-const detailsRouter = require('./src/routes/details.router');
-// const regRouter = require('./src/routes/reg.router');
-// const loginRouter = require('./src/routes/login.router');
+const indexRouter = require('./src/routes/index.routes');
+const regRouter = require('./src/routes/reg.routes');
+const trailsRouter = require('./src/routes/allTrails.routes');
+const profileRouter = require('./src/routes/profile.routes');
+const detailsRouter = require('./src/routes/details.routes');
 
 const app = express();
 const { PORT } = process.env;
@@ -38,8 +39,9 @@ app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(session(sessionConfig));
 app.use(dbConnectionCheck);
 
-// app.use('/login', secureRoute, loginRouter);
-// app.use('/register', secureRoute, regRouter);
+app.use('/registration', secureRoute, regRouter);
+app.use('/alltrails', trailsRouter);
+app.use('/profile', profileRouter);
 app.use('/details', detailsRouter);
 app.use('/', indexRouter);
 
