@@ -11,6 +11,9 @@ module.exports = {
       comment: {
         type: Sequelize.TEXT,
       },
+      user_rating: {
+        type: Sequelize.INTEGER,
+      },
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,

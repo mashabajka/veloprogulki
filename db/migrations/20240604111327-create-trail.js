@@ -11,7 +11,8 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
       },
-      score: {
+      average_rating: {
+        allowNull: true,
         type: Sequelize.INTEGER,
       },
       image_link: {
