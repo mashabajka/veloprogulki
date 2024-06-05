@@ -15,6 +15,7 @@ const indexRouter = require('./src/routes/index.routes');
 const regRouter = require('./src/routes/reg.routes');
 const trailsRouter = require('./src/routes/allTrails.routes');
 // const loginRouter = require('./src/routes/login.routes');
+const profileRouter = require('./src/routes/profile.routes');
 
 const app = express();
 const { PORT } = process.env;
@@ -40,8 +41,9 @@ app.use(dbConnectionCheck);
 
 // app.use('/login', secureRoute, loginRouter);
 app.use('/registration', secureRoute, regRouter);
-app.use('/', indexRouter);
 app.use('/alltrails', trailsRouter);
+app.use('/profile', profileRouter);
+app.use('/', indexRouter);
 
 // app.get('/', (req, res) => {
 //   res.send('Hello World!');
