@@ -6,7 +6,7 @@ return(
 
     {login ? (  
     <nav className="navbar bg-body-tertiary p-0" >
-<div className="container-fluid" style={{backgroundColor:'lightgreen'}}>
+<div className="container-fluid" >
 <a id='navbarNormal' className="navbar-brand me-auto p-2" href="/">
   <img src="/assets/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{marginRight:'10px'}}/>
   Привет, {login}! Это твой Velo Trail ❤️
@@ -22,7 +22,7 @@ return(
 </div>
 </nav>
 ) : (  <nav className="navbar bg-body-tertiary p-0">
-<div className="container-fluid" style={{backgroundColor:'lightgreen'}}>
+<div className="container-fluid" >
 <a className="navbar-brand me-auto p-2" href="/">
   <img src="/assets/icon_navbar1.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{marginRight:'10px'}}/>
   Velo Trail
@@ -44,11 +44,7 @@ return(
 <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
 <div id="passwordHelp" className="form-text">Забыли пароль? Свяжитесь с администратором сайта.</div>
 </div>
-<div className="mb-30  form-check">
-<input type="checkbox" className="form-check-input" id="exampleCheckReg" />
-<label className="form-check-label" htmlFor="exampleCheck1">Согласен на обработку данных</label>
-</div>
-<button type="submit" className="btn btn-primary">Отправить</button>
+<button type="submit" className="btn btn-outline-dark">Отправить</button>
 </form>
 </div>
 </dialog>

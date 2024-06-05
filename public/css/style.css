@@ -11,46 +11,60 @@
     color: white;
 }
 
-.posts{
+.container-fluid {
+    background-color: #427a55
+}
+
+#showTrailsBtn1,
+#showTrailsBtn2 {
+    background-color: white;
+     top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.posts {
     display: flex;
     flex-direction: row;
-   justify-content: space-evenly;
+    justify-content: space-evenly;
     margin-top: 10px;
 }
 
 #navbarMini {
     display: none;
 }
+
 .homePhoneSize {
     display: none;
 }
 
 @media (max-width: 850px) {
 
-.posts {
-    flex-direction: column;
-    align-items: center;
-}
+    .posts {
+        flex-direction: column;
+        align-items: center;
+    }
 
 
 }
-@media (max-width: 730px){
-    .homeNormalSize{
+
+@media (max-width: 730px) {
+    .homeNormalSize {
         display: none;
     }
-    
+
     .homePhoneSize {
         display: inline-block;
     }
 }
 
 @media (max-width: 475px) {
-#navbarNormal{
-    display: none;
-}
+    #navbarNormal {
+        display: none;
+    }
 
-#navbarMini {
-    display: inline;
-}
+    #navbarMini {
+        display: inline;
+    }
 
 }
