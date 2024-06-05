@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const renderTemplate = require('../utils/renderTemplate');
-const Profile = require('../views/pages/Profile');
+const Profile = require('../views/pages/Profile.jsx');
 
 const { User, Trail } = require('../../db/models');
 
@@ -30,8 +30,12 @@ profileRouter.post('/', async (req, res) => {
     const user = await User.findOne({ where: { email } });
     const user_id = user.id;
 
-    const { title, start_lat, start_lon, finish_lat, finish_lon } = req.body;
-    await Trail.create({ title, start_lat, start_lon, finish_lat, finish_lon, user_id });
+    const {
+      title, start_lat, start_lon, finish_lat, finish_lon,
+    } = req.body;
+    await Trail.create({
+      title, start_lat, start_lon, finish_lat, finish_lon, user_id,
+    });
     res.redirect('/profile');
     // res.json({ createTrailSuccess: true })
   } catch (error) {
