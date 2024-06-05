@@ -1,5 +1,14 @@
-.image {
-    max-width: 350px;
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 5px;
+    color: white;
 }
 
 .averageRatingContainer {
@@ -126,5 +135,3 @@
     line-height: 1;
     padding: 0 0 0 10px;
 }
-
-
