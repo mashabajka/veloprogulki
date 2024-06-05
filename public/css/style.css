@@ -1,3 +1,130 @@
 .image {
     max-width: 350px;
 }
+
+.averageRatingContainer {
+    position: relative;
+    font-size: 40px;
+    display: inline-block;
+}
+
+.averageRatingContainer::before {
+    content: '★★★★★★★★★★';
+    display: block;
+}
+
+.averageRatingItems {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: hidden;
+}
+
+.averageRatingInput {
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+}
+
+.averageRatingLabel {
+    flex: 0 0 10%;
+    height: 100%;
+    cursor: pointer;
+    color: rgb(119, 214, 119);
+}
+
+.averageRatingLabel::before {
+    content: '★';
+    display: block;
+    transition: color 0.3s ease 0s;
+}
+
+.averageRatingInput:checked,
+.averageRatingInput:checked ~ .averageRatingLabel {
+    color: gold;
+}
+
+
+/*  ~ означает все следующие элементы, то есть выбраны все следующие lable, но они перевернуты row ревёрсом и поэтому выбираются все предыдущие */
+.averageRatingLabel:hover,
+.averageRatingLabel:hover ~ .averageRatingLabel,
+.averageRatingLabel:checked ~ .averageRatingLabel:hover {
+    color: gold;
+}
+
+
+
+/***************************************/
+
+
+.ratingContainer {
+    display: flex;
+    align-items: flex-end;
+    font-size: 40px;
+    line-height: 0.75;
+}
+
+/* .rating.ratingSending {
+    opacity: 0.2;
+} */
+
+.ratingBody {
+    position: relative;
+}
+
+/* Базовые звёзды, задающие размер */
+.ratingBody::before {
+    content: '★★★★★★★★★★';
+    display: block;
+}
+
+.ratingActive {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.ratingActive::before {
+    content: '★★★★★★★★★★';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: gold;
+}
+
+.ratingItems {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.ratingInput {
+    flex: 0 0 10%;
+    height: 100%;
+    /* Opacity сделает радио-кнопки невидимыми, чтобы их перекрыди звёзды */
+    opacity: 0; 
+}
+
+.ratingValue {
+    font-size: 50%;
+    line-height: 1;
+    padding: 0 0 0 10px;
+}
+
+

@@ -1,20 +1,20 @@
 const React = require('react');
 
-function Trail({ entry }) {
+function Trail({ login, trail }) {
   return (
       <>
-      <a href={`/details/${entry.id}`}>
-        <h3>{entry.title}</h3>
+      <a href={`/details/${trail.id}`}>
+        <h3>{trail.title}</h3>
       </a>
-      <p>{entry.average_rating}</p>
-      <img className='image' src={`${entry.image_link}`} alt="Картинка" />
-      <p>{entry.location}</p>
-      <p>{entry.distance}</p>
-      <p>{entry.start_lat}</p>
-      <p>{entry.start_lon}</p>
-      <p>{entry.custom_points}</p>
-      <p>{entry.finish_lat}</p>
-      <p>{entry.finish_lon}</p>
+      <p>{trail.average_rating}</p>
+      <img className='image' src={`${trail.image_link}`} alt="Картинка" />
+      <p>{trail.location}</p>
+      <p>{trail.distance}</p>
+      <p>{trail.start_lat}</p>
+      <p>{trail.start_lon}</p>
+      <p>{trail.custom_points}</p>
+      <p>{trail.finish_lat}</p>
+      <p>{trail.finish_lon}</p>
       </>
   );
 }
