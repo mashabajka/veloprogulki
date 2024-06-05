@@ -21,6 +21,9 @@
 #navbarMini {
     display: none;
 }
+.homePhoneSize {
+    display: none;
+}
 
 @media (max-width: 850px) {
 
@@ -28,6 +31,17 @@
     flex-direction: column;
     align-items: center;
 }
+
+
+}
+@media (max-width: 730px){
+    .homeNormalSize{
+        display: none;
+    }
+    
+    .homePhoneSize {
+        display: inline-block;
+    }
 }
 
 @media (max-width: 475px) {
@@ -38,4 +52,5 @@
 #navbarMini {
     display: inline;
 }
+
 }
