@@ -7,8 +7,8 @@ module.exports = function Trail({login, trail}){
     return(
         <>
         <div className="card" style={{width: "18rem", position:'relative'}}>
-          <div  className='rating' style={{backgroundColor: `${color[trail.average_rating]}`}}>
-            {trail.average_rating} ★
+          <div  className='rating' style={{backgroundColor: `${color[Math.round(trail.average_rating)]}`}}>
+            {trail.average_rating}★
             </div>
   <img src={trail.image_link} className="card-img-top" alt="карта" style={{width: '100%', height:'30%'}}/>
   <div className="card-body">
