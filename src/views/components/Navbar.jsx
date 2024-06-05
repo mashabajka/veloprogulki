@@ -9,7 +9,7 @@ return(
 <div className="container-fluid" style={{backgroundColor:'lightgreen'}}>
 <a className="navbar-brand me-auto p-2" href="/">
   <img src="/assets/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{marginRight:'10px'}}/>
-  Velo Trail
+  Привет, {login}! Это твой Velo Trail ❤️
 </a>
 
 <a className="btn btn-outline-dark me-2 p-2" type="button" href='/logout'>Logout</a>
