@@ -7,42 +7,10 @@ function DetailsPage({ login, trail }) {
     <>
       <Layout login={login}>
         <Trail trail={trail} />
+        <div className="ratingPart">
         <h3>Оцените маршрут</h3>
-        <div className="averageRatingContainer">
-          <div className="averageRatingItems">
-            <input id='averageRating10' type="radio" value="10" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="averageRating10" className='averageRatingLabel'></label>
 
-            <input id='averageRating9' type="radio" value="9" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="averageRating9" className='averageRatingLabel'></label>
-
-            <input id='averageRating8' type="radio" value="8" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="averageRating8" className='averageRatingLabel'></label>
-
-            <input id='averageRating7' type="radio" value="7" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="averageRating7" className='averageRatingLabel'></label>
-
-            <input id='averageRating6' type="radio" value="6" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="averageRating6" className='averageRatingLabel'></label>
-
-            <input id='averageRating5' type="radio" value="5" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="id='averageRating5'" className='averageRatingLabel'></label>
-
-            <input id='averageRating4' type="radio" value="4" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="averageRating4" className='averageRatingLabel'></label>
-
-            <input id='averageRating3' type="radio" value="3" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="averageRating3" className='averageRatingLabel'></label>
-
-            <input id='averageRating2' type="radio" value="2" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="averageRating2" className='averageRatingLabel'></label>
-
-            <input id='averageRating1' type="radio" value="1" className='averageRatingInput' name='averageRating'/>
-            <label htmlFor="averageRating1" className='averageRatingLabel'></label>
-          </div>
-        </div>
-
-        <div className="ratingContainer ratingSet">
+        <div data-ajax="true" className="ratingContainer ratingSet">
           <div className="ratingBody">
             <div className="ratingActive">
               <div className="ratingItems">
@@ -60,10 +28,28 @@ function DetailsPage({ login, trail }) {
             </div>
           </div>
 
-          <div className="ratingValue">
-            7.5
-          </div>
+          <div className="ratingValue">7</div>
 
+        </div>
+        </div>
+
+        <div className="addcommentPart">
+          <h3>Оставьте комментарий об этом маршруте:</h3>
+          <form action="/comment" method="POST" id="commentForm">
+            <input name="name" type="text" className="commentInput form-control shadow rounded" id="name" required/>
+
+            <button type="submit" className="commentBtn">Опубликовать отзыв</button>
+          </form>
+        </div>
+
+        <div className="oldComments">
+          <h3>Комментарии к маршруту:</h3>
+          {/* {comments.map((comment) => (
+            <div key={comment.id} className="comment">
+              <p>{comment.User.login}: {comment.comment}</p>
+              <p>Дата: {new Date(comment.createdAt).toLocaleString()}</p>
+            </div>
+          ))} */}
         </div>
         <script defer src='/js/stars.js' />
       </Layout>
