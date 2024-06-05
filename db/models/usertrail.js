@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   UserTrail.init({
     comment: DataTypes.TEXT,
+    user_rating: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
     trail_id: DataTypes.INTEGER,
   }, {

@@ -4,10 +4,9 @@ const Layout = require('../Layout')
 module.exports = function Registration({login}) {
     return (
     <Layout login={login}>
-              <script defer src="/js/reg.js" />
 <div style={{display:'flex', justifyContent:'center'}}>
      <form className='regForm' action="registration" method="POST" style={{}}>
-      <h4 className='errMsg' />
+      <h5 className='regErrMsg' />
      <div className="mb-3" >
     <label htmlFor="exampleInputLogin" className="form-label" >Придумайте логин</label>
     <input name="login" type="text" style={{width:'300px'}} className="form-control" id="exampleInputLogin1"  />

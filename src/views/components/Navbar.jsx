@@ -5,7 +5,7 @@ return(
 <>
 
     {login ? (  
-    <nav className="navbar bg-body-tertiary">
+    <nav className="navbar bg-body-tertiary p-0" >
 <div className="container-fluid" style={{backgroundColor:'lightgreen'}}>
 <a className="navbar-brand me-auto p-2" href="/">
   <img src="/assets/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{marginRight:'10px'}}/>
@@ -19,7 +19,7 @@ return(
 
 </div>
 </nav>
-) : (  <nav className="navbar bg-body-tertiary">
+) : (  <nav className="navbar bg-body-tertiary p-0">
 <div className="container-fluid" style={{backgroundColor:'lightgreen'}}>
 <a className="navbar-brand me-auto p-2" href="/">
   <img src="/assets/icon_navbar1.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{marginRight:'10px'}}/>

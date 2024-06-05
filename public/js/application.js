@@ -6,6 +6,8 @@ const logForm = document.querySelector('.logForm');
 const errMsg = document.querySelector('.logErrMsg');
 const inputEmail = document.querySelector('#exampleInputEmail1');
 const inputPass = document.querySelector('#exampleInputPassword1');
+const regForm = document.querySelector('.regForm');
+const errRegMsg = document.querySelector('.regErrMsg');
 
 let isModalOpen = false;
 
@@ -63,6 +65,41 @@ logForm.addEventListener('submit', async (e) => {
       }
     } catch (error) {
       console.log(error);
+    }
+  }
+});
+
+regForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = new FormData(regForm);
+  console.log(data);
+  const res = Object.fromEntries(data);
+  if (!res.login || !res.password || !res.email) {
+    errMsg.innerText = 'Введите данные';
+  } else {
+    try {
+      const response = await fetch('/registration', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(res),
+      });
+      const result = await response.json();
+      if (result.regDone) {
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 250);
+      }
+      if (result.regErr) {
+        errRegMsg.innerText = result.regErr;
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      }
+    } catch (error) {
+      console.log(error);
+    //   alert('Reg error');
     }
   }
 });

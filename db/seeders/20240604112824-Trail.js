@@ -4,7 +4,7 @@ module.exports = {
     await queryInterface.bulkInsert('Trails', [
       {
         title: 'Бульварное кольцо',
-        score: 7,
+        average_rating: null,
         image_link: 'https://img4.teletype.in/files/37/b9/37b9ff5e-833e-4129-bfb9-2b6ebea88879.jpeg',
         location: 'Москва',
         distance: 6.8,
@@ -17,7 +17,7 @@ module.exports = {
       },
       {
         title: 'ВДНХ и Ботанический Сад',
-        score: 9,
+        average_rating: null,
         image_link: 'https://www.fiesta.ru/uploads/slider_image/image/203833/v880_ot-vdnx-do-ostankino.jpg',
         location: 'Москва',
         distance: 15,
@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         title: 'Битцевский Парк',
-        score: 5,
+        average_rating: null,
         image_link: 'https://cdn.pacer.cc/route/screenshot/osm_way_303650309.png',
         location: 'Москва',
         distance: 1.91,
