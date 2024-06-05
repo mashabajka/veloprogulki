@@ -1,5 +1,4 @@
 const React = require('react');
-const Rating = require('./Rating');
 
 module.exports = function Trail({login, trail}){
   const color = ['red', 'red','red','red','red','orange','orange','orange','green', 'green','green',];
@@ -9,7 +8,7 @@ module.exports = function Trail({login, trail}){
         <>
         <div className="card" style={{width: "18rem", position:'relative'}}>
           <div  className='rating' style={{backgroundColor: `${color[trail.average_rating]}`}}>
-            {trail.average_rating}
+            {trail.average_rating} ★
             </div>
   <img src={trail.image_link} className="card-img-top" alt="карта" style={{width: '100%', height:'30%'}}/>
   <div className="card-body">
