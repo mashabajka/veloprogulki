@@ -10,3 +10,32 @@
     border-radius: 5px;
     color: white;
 }
+
+.posts{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+#navbarMini {
+    display: none;
+}
+
+@media (max-width: 850px) {
+
+.posts {
+    flex-direction: column;
+    align-items: center;
+}
+}
+
+@media (max-width: 475px) {
+#navbarNormal{
+    display: none;
+}
+
+#navbarMini {
+    display: inline;
+}
+}
