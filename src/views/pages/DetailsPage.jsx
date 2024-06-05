@@ -61,7 +61,7 @@ function DetailsPage({ login, trail }) {
           </div>
 
           <div className="ratingValue">
-            1
+            7.5
           </div>
 
         </div>

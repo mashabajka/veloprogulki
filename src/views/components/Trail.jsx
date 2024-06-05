@@ -1,6 +1,6 @@
 const React = require('react');
 
-module.exports = function Trail({login, trail}){
+module.exports = function Trail({ trail }){
   const color = ['red', 'red','red','red','red','orange','orange','orange','green', 'green','green',];
   trail.average_rating = trail.average_rating ? trail.average_rating : 0
 
