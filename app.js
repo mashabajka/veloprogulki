@@ -14,7 +14,8 @@ const dbConnectionCheck = require('./src/middlewares/dbCheck');
 const indexRouter = require('./src/routes/index.routes');
 const regRouter = require('./src/routes/reg.routes');
 const trailsRouter = require('./src/routes/allTrails.routes');
-// const loginRouter = require('./src/routes/login.routes');
+// const profileRouter = require('./src/routes/profile.routes');
+// const detailsRouter = require('./src/routes/details.routes');
 
 const app = express();
 const { PORT } = process.env;
@@ -38,10 +39,11 @@ app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(session(sessionConfig));
 app.use(dbConnectionCheck);
 
-// app.use('/login', secureRoute, loginRouter);
 app.use('/registration', secureRoute, regRouter);
-app.use('/', indexRouter);
 app.use('/alltrails', trailsRouter);
+// app.use('/profile', profileRouter);
+// app.use('/details', detailsRouter);
+app.use('/', indexRouter);
 
 // app.get('/', (req, res) => {
 //   res.send('Hello World!');
