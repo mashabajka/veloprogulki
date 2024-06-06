@@ -2,7 +2,7 @@ const detailsRouter = require('express').Router();
 const renderTemplate = require('../utils/renderTemplate');
 const DetailsPage = require('../views/pages/DetailsPage.jsx');
 
-const { User, Trail, UserTrail } = require('../../db/models');
+const { User, Trail, UserTrail, Comment } = require('../../db/models');
 
 detailsRouter.get('/:id', async (req, res) => {
   const { login } = req.session;
@@ -10,11 +10,19 @@ detailsRouter.get('/:id', async (req, res) => {
     const { id } = req.params;
     const trail = await Trail.findOne(
       { where: { id },
-        include: [{
+        include: {
           model: User,
           attributes: ['login'],
-        }] },
+
+        } },
     );
+    const comments = await Comment.findAll({
+      where: { trail_id: id },
+      include: {
+        model: User,
+        attributes: ['login'], // Автор комментария
+      },
+    });
 
     const user = await User.findOne({ where: { login } });
     const userRating = user ? await UserTrail.findOne({
@@ -25,12 +33,32 @@ detailsRouter.get('/:id', async (req, res) => {
       attributes: ['user_rating'],
     }) : null;
     // console.log('##############', userRating.user_rating);
-
-
-    // renderTemplate(DetailsPage, { login, trail }, res);
-    renderTemplate(DetailsPage, { login, trail, userRating: userRating ? userRating.user_rating : 0 }, res);
+    renderTemplate(DetailsPage, { login, trail, comments, userRating: userRating ? userRating.user_rating : 0 }, res);
   } catch (error) {
     console.log('Error on detailsRouter.get() ====>>>>', error);
+  }
+});
+
+detailsRouter.put('/:id', async (req, res) => {
+  try {
+    const { login } = req.session;
+    const { id } = req.params;
+    const { text } = req.body;
+    const user = await User.findOne({ where: { login } });
+    console.log(user);
+    const newComment = await Comment.create({
+      trail_id: id,
+      text,
+      user_id: user.id,
+    }, {
+      returning: true,
+      plain: true,
+    });
+
+    console.log(newComment);
+    res.json({ status: 'success', newComment });
+  } catch (error) {
+    res.json('ОШИБКА ПРИ ДОБАВЛЕНИИ КОММЕНТАРИЯ');
   }
 });
 

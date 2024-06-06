@@ -1,15 +1,16 @@
 const React = require('react');
-const Layout = require('../Layout');
-const Trail = require('../components/Trail');
+const Layout = require('../Layout.jsx');
+const Trail = require('../components/Trail.jsx');
 
-function DetailsPage({ login, trail, userRating }) {
+function DetailsPage({ login, trail, comments, userRating }) {
   console.log('***************', userRating);
   return (
     <>
       <Layout login={login}>
-        <Trail trail={trail} />
-        <div className="ratingPart">
-        <h3>Оцените маршрут</h3>
+        <div className='mainDivTrail'>
+          <Trail trail={trail} />
+          <div className="ratingPart">
+            <h3>Оцените маршрут</h3>
 
         <div className="ratingContainer">
         <div className="starsContainer" data-total-value={userRating} data-trail-id={trail.id}>
@@ -29,25 +30,26 @@ function DetailsPage({ login, trail, userRating }) {
 
         </div>
 
-        <div className="addCommentPart">
-          <h3>Оставьте комментарий об этом маршруте:</h3>
-          <form action="/comment" method="POST" id="commentForm">
-            <input name="name" type="text" className="commentInput form-control shadow rounded" id="name" required/>
+          <div className="addCommentPart">
+            <h3>Оставьте комментарий об этом маршруте:</h3>
+            <form action="/comment" method="POST" className="commentForm" id={trail.id} >
+              <textarea name="text" style={{ width: '400px', marginBottom: '10px' }} type="text" className="commentInput form-control shadow rounded" id="name" required/>
 
-            <button type="submit" className="commentBtn">Опубликовать отзыв</button>
-          </form>
-        </div>
+              <button type="submit" className="btn btn-outline-dark">Опубликовать</button>
+            </form>
+          </div>
 
-        <div className="oldComments">
-          <h3>Комментарии к маршруту:</h3>
-          {/* {comments.map((comment) => (
-            <div key={comment.id} className="comment">
-              <p>{comment.User.login}: {comment.comment}</p>
-              <p>Дата: {new Date(comment.createdAt).toLocaleString()}</p>
-            </div>
-          ))} */}
+          <div className="oldComments">
+            <h3>Комментарии к маршруту:</h3>
+            {comments.map((comment) => (
+              <div key={comment.id} className="comment">
+                <p>{comment.User.login}: {comment.text}</p>
+                <p>Дата: {new Date(comment.createdAt).toLocaleString()}</p>
+              </div>
+            ))}
+          </div>
+          <script defer src='/js/rating.js' />
         </div>
-        <script defer src='/js/rating.js' />
       </Layout>
     </>
   );
