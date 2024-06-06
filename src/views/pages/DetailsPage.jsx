@@ -1,6 +1,7 @@
 const React = require('react');
 const Layout = require('../Layout.jsx');
-const Trail = require('../components/Trail.jsx');
+// const Trail = require('../components/Trail.jsx');
+const TrailDetails = require('../components/TrailDetails.jsx');
 
 function DetailsPage({ login, trail, comments, userRating }) {
   // console.log('***************', userRating);

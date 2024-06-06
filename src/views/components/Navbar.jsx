@@ -7,23 +7,23 @@ module.exports = function Navbar({ login }) {
       {login ? (
         <nav className="navbar bg-body-tertiary p-0" >
           <div className="container-fluid" >
-            <a id='navbarNormal' className="navbar-brand me-auto p-2" href="/">
+            <a id='navbarNormal' className="navbar-brand me-auto p-2" href="/" style={{ color: 'white' }}>
               <img src="/assets/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{ marginRight: '10px' }}/>
               Привет, {login}! Это твой Velo Trail ❤️
             </a>
             <a id='navbarMini' className="navbar-brand me-auto p-2" href="/">
               <img src="/assets/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{ marginRight: '10px' }}/>
             </a>
-            <a className="btn btn-outline-dark me-2 p-2" type="button" href='/alltrails'>Маршруты</a>
-            <a className="btn btn-outline-dark me-2 p-2" type="button" href='/logout'>Logout</a>
-            <a className="btn btn-outline-dark me-2 p-2" type="button" href='/profile'>{login}</a>
+            <a className="btn btn-outline-light me-2 p-2" type="button" href='/alltrails'>Маршруты</a>
+            <a className="btn btn-outline-light me-2 p-2" type="button" href='/logout'>Logout</a>
+            <a className="btn btn-outline-light me-2 p-2" type="button" href='/profile'>{login}</a>
 
           </div>
         </nav>
       ) : (<nav className="navbar bg-body-tertiary p-0">
         <div className="container-fluid" >
-          <a className="navbar-brand me-auto p-2" href="/">
-            <img src="/assets/icon_navbar1.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{ marginRight: '10px' }}/>
+          <a className="navbar-brand me-auto p-2" href="/" style={{ color: 'white' }}>
+            <img src="/assets/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{ marginRight: '10px' }}/>
             Velo Trail
           </a>
 
@@ -46,10 +46,10 @@ module.exports = function Navbar({ login }) {
               </form>
             </div>
           </dialog>
-          <a className="btn btn-outline-dark me-2 p-2" type="button" href='/alltrails'>Маршруты</a>
-          <button className="btn btn-outline-dark me-2 p-2" id="show-modal-btn">Login</button>
+          <a className="btn btn-outline-light me-2 p-2" type="button" href='/alltrails'>Маршруты</a>
+          <button className="btn btn-outline-light me-2 p-2" id="show-modal-btn">Login</button>
 
-          <a className="btn btn-outline-dark me-2 p-2" type="button" href='/registration'>Registration</a>
+          <a className="btn btn-outline-light me-2 p-2" type="button" href='/registration'>Registration</a>
 
         </div>
       </nav>
