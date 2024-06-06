@@ -17,10 +17,13 @@
 
 #showTrailsBtn1,
 #showTrailsBtn2 {
-    background-color: white;
-     top:50%;
+    background-color: #427a55;
+    color: white;
+    top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 0px 10px;
+    width: 240px;
 }
 
 .posts {
