@@ -5,9 +5,18 @@ const DetailsPage = require('../views/pages/DetailsPage.jsx');
 const { User, Trail, UserTrail, Comment } = require('../../db/models');
 
 detailsRouter.get('/:id', async (req, res) => {
-  const { login } = req.session;
   try {
+    const { login } = req.session;
     const { id } = req.params;
+
+    const comments = await Comment.findAll({
+      where: { trail_id: id },
+      include: {
+        model: User,
+        attributes: ['login'], // Автор комментария
+      },
+    });
+
     const trail = await Trail.findOne(
       { where: { id },
         include: {
@@ -16,13 +25,10 @@ detailsRouter.get('/:id', async (req, res) => {
 
         } },
     );
-    const comments = await Comment.findAll({
-      where: { trail_id: id },
-      include: {
-        model: User,
-        attributes: ['login'], // Автор комментария
-      },
-    });
+
+    if (!login) {
+      return renderTemplate(DetailsPage, { login: null, trail, comments, userRating: null }, res);
+    }
 
     const user = await User.findOne({ where: { login } });
     const userRating = user ? await UserTrail.findOne({
@@ -45,7 +51,7 @@ detailsRouter.put('/:id', async (req, res) => {
     const { id } = req.params;
     const { text } = req.body;
     const user = await User.findOne({ where: { login } });
-    console.log(user);
+    // console.log(user);
     const newComment = await Comment.create({
       trail_id: id,
       text,
@@ -55,7 +61,7 @@ detailsRouter.put('/:id', async (req, res) => {
       plain: true,
     });
 
-    console.log(newComment);
+    // console.log(newComment);
     res.json({ status: 'success', newComment });
   } catch (error) {
     res.json('ОШИБКА ПРИ ДОБАВЛЕНИИ КОММЕНТАРИЯ');

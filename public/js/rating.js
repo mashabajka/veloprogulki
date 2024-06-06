@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (response.ok) {
         document.querySelector('.rating').textContent = `${result.average_rating}★`;
+        window.location.reload();
       }
     } catch (error) {
       console.error('Error:', error);
