@@ -33,8 +33,21 @@
   margin-bottom: 20px;
 }
 
-.add-new-map-form {
+.add-new-form {
   display: flex;
   flex-direction: column;
   margin-right: 50px;
+}
+
+.image-upload {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.image-upload:hover {
+  background-color: #0056b3;
 }

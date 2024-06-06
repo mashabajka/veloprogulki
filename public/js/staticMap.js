@@ -7,10 +7,10 @@ async function initMap() {
 
   const result = await response.json();
 
-  // const points = result.trail_data;
-  const { trail_data } = result;
+  // const points = result.coordinates;
+  const { coordinates } = result;
 
-  const waypoints = trail_data.map((waypoint) => waypoint.reverse().join(',')).join('|');
+  const waypoints = coordinates.map((waypoint) => waypoint.reverse().join(',')).join('|');
 
   console.log(waypoints);
 

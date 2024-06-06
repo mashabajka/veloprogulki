@@ -37,6 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(session(sessionConfig));
 app.use(dbConnectionCheck);
+app.use('/uploads', express.static(path.join(__dirname, 'src', 'uploads')));
 
 app.use('/registration', secureRoute, regRouter);
 app.use('/alltrails', trailsRouter);

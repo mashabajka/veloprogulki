@@ -1,18 +1,19 @@
 initMap();
 
 async function initMap() {
-  const response = await fetch('/profile/trail', {
+  const urlHref = window.location.href;
+  const split = urlHref.split('/');
+  const trail_id = split[split.length - 1];
+
+  const response = await fetch(`/profile/coordinates/${trail_id}`, {
     method: 'GET',
   });
 
   const result = await response.json();
 
-  // const points = result.trail_data;
-  const { trail_data, trail_id } = result;
+  const { coordinates } = result;
 
-  const waypoints = trail_data.map((waypoint) => waypoint.reverse().join(',')).join('|');
-
-  console.log(waypoints);
+  const waypoints = coordinates.map((waypoint) => waypoint.reverse().join(',')).join('|');
 
   const url = `https://api.routing.yandex.net/v2/route?waypoints=${waypoints}&mode=bicycle&apikey=44f64c3d-a1cc-452b-8abb-6e08577200b7`;
 
@@ -34,7 +35,7 @@ async function initMap() {
 
   console.log('Общая дистанция в км:', distance);
 
-  const distanceResponse = await fetch('/profile/distance', {
+  const distanceResponse = await fetch('/profile/save/distance', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('.add-new-map-form');
+  const form = document.querySelector('.add-new-form');
   const mapContainer = document.getElementById('map');
+  const coordinatesInput = document.getElementById('coordinates');
   const lineCoordinates = [];
 
   async function initMap() {
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
           coordinates: lineCoordinates,
         },
       });
+      coordinatesInput.value = JSON.stringify({ lineCoordinates });
       bottomControls.addChild(clearLineBtn);
       bottomControls.addChild(clearLastLineBtn);
     }
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bottomControls = new YMapControls({ position: 'bottom' });
     map.addChild(bottomControls);
 
-    // Кнопка удаления всего маршрута
+    //! Кнопка удаления всего маршрута
     let clearLineBtn = new YMapControlButton({
       text: 'ОЧИСТИТЬ ВСЁ',
       color: '#fff',
@@ -70,21 +72,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function onClickBtnHandler() {
-      lineCoordinates.length = 0; // очищаем массив
+      lineCoordinates.length = 0; //! очищаем массив
       line.update({
         geometry: {
           type: 'LineString',
           coordinates: lineCoordinates,
         },
       });
-
+      coordinatesInput.value = JSON.stringify({ lineCoordinates });
       if (!lineCoordinates.length) {
         bottomControls.removeChild(clearLineBtn);
         bottomControls.removeChild(clearLastLineBtn);
       }
     }
 
-    // Кнопка удаления последней точки маршрута
+    //! Кнопка удаления последней точки маршрута
     let clearLastLineBtn = new YMapControlButton({
       text: 'УБРАТЬ ПОСЛЕДНЕЕ',
       color: '#fff',
@@ -105,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       });
       console.log('++++++++++++++++++++++', lineCoordinates); //! проверяем массив при удалении элементов
+      coordinatesInput.value = JSON.stringify({ lineCoordinates });
       if (!lineCoordinates.length) {
         bottomControls.removeChild(clearLineBtn);
         bottomControls.removeChild(clearLastLineBtn);
@@ -113,25 +116,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initMap();
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const title = document.getElementById('addTrailName').value;
-
-    const response = await fetch('/profile/coordinates', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ title, lineCoordinates }),
-    });
-
-    const result = await response.json();
-    if (result.createTrailSuccess) {
-      console.log('Маршрут успешно создан');
-    } else {
-      console.log('Ошибка при создании маршрута');
-    }
-  });
 });
