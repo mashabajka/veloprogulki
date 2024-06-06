@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
+     * The models/index file will call this method automatically.
      */
     static associate(models) {
       this.belongsTo(models.User, {
@@ -21,15 +21,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Trail.init({
     title: DataTypes.STRING,
-    average_rating: DataTypes.INTEGER,
+    description: DataTypes.TEXT,
+    average_rating: DataTypes.REAL,
     image_link: DataTypes.STRING,
     location: DataTypes.STRING,
-    distance: DataTypes.INTEGER,
-    start_lat: DataTypes.STRING,
-    start_lon: DataTypes.STRING,
-    custom_points: DataTypes.JSON,
-    finish_lat: DataTypes.STRING,
-    finish_lon: DataTypes.STRING,
+    distance: DataTypes.FLOAT,
+    trail_data: DataTypes.JSON,
+    trail_center: DataTypes.STRING,
+    trail_zoom: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
   }, {
     sequelize,

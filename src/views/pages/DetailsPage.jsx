@@ -10,30 +10,21 @@ function DetailsPage({ login, trail }) {
         <div className="ratingPart">
         <h3>Оцените маршрут</h3>
 
-        <div data-ajax="true" className="ratingContainer ratingSet">
-          <div className="ratingBody">
-            <div className="ratingActive">
-              <div className="ratingItems">
-                <input type="radio" className='ratingInput' value="1" name='rating' />
-                <input type="radio" className='ratingInput' value="2" name='rating' />
-                <input type="radio" className='ratingInput' value="3" name='rating' />
-                <input type="radio" className='ratingInput' value="4" name='rating' />
-                <input type="radio" className='ratingInput' value="5" name='rating' />
-                <input type="radio" className='ratingInput' value="6" name='rating' />
-                <input type="radio" className='ratingInput' value="7" name='rating' />
-                <input type="radio" className='ratingInput' value="8" name='rating' />
-                <input type="radio" className='ratingInput' value="9" name='rating' />
-                <input type="radio" className='ratingInput' value="10" name='rating' />
-              </div>
-            </div>
-          </div>
-
-          <div className="ratingValue">7</div>
-
+        <div className="ratingContainer" data-total-value="0" data-trail-id={trail.id}>
+          <div className="ratingInput" data-input-value="10">★</div>
+          <div className="ratingInput" data-input-value="9">★</div>
+          <div className="ratingInput" data-input-value="8">★</div>
+          <div className="ratingInput" data-input-value="7">★</div>
+          <div className="ratingInput" data-input-value="6">★</div>
+          <div className="ratingInput" data-input-value="5">★</div>
+          <div className="ratingInput" data-input-value="4">★</div>
+          <div className="ratingInput" data-input-value="3">★</div>
+          <div className="ratingInput" data-input-value="2">★</div>
+          <div className="ratingInput" data-input-value="1">★</div>
         </div>
         </div>
 
-        <div className="addcommentPart">
+        <div className="addCommentPart">
           <h3>Оставьте комментарий об этом маршруте:</h3>
           <form action="/comment" method="POST" id="commentForm">
             <input name="name" type="text" className="commentInput form-control shadow rounded" id="name" required/>
@@ -51,7 +42,7 @@ function DetailsPage({ login, trail }) {
             </div>
           ))} */}
         </div>
-        <script defer src='/js/stars.js' />
+        <script defer src='/js/rating.js' />
       </Layout>
     </>
   );
