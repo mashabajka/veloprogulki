@@ -1,13 +1,14 @@
 const React = require('react');
 const Layout = require('../Layout.jsx');
-const Trail = require('../components/Trail.jsx');
+// const Trail = require('../components/Trail.jsx');
+const TrailDetails = require('../components/TrailDetails.jsx');
 
 function DetailsPage({ login, trail, comments }) {
   return (
     <>
       <Layout login={login}>
         <div className='mainDivTrail'>
-          <Trail trail={trail} />
+          <TrailDetails trail={trail} />
           <div className="ratingPart">
             <h3>Оцените маршрут</h3>
 
