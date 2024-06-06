@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Trail.init({
     title: DataTypes.STRING,
+    description: DataTypes.TEXT,
     average_rating: DataTypes.REAL,
     image_link: DataTypes.STRING,
     location: DataTypes.STRING,

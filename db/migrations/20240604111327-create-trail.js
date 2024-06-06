@@ -11,6 +11,10 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
       },
+      description: {
+        allowNull: true,
+        type: Sequelize.TEXT,
+      },
       average_rating: {
         allowNull: true,
         type: Sequelize.REAL,

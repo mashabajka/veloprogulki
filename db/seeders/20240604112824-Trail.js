@@ -4,6 +4,7 @@ module.exports = {
     await queryInterface.bulkInsert('Trails', [
       {
         title: 'Бульварное кольцо',
+        description: 'Прекрасный маршрут по центру Москвы для выходного дня блаблабла',
         average_rating: null,
         image_link: 'https://img4.teletype.in/files/37/b9/37b9ff5e-833e-4129-bfb9-2b6ebea88879.jpeg',
         location: 'Москва',
@@ -15,6 +16,7 @@ module.exports = {
       },
       {
         title: 'ВДНХ и Ботанический Сад',
+        description: 'Прекрасный маршрут по ВДНХ и живописному саду для выходного дня блаблабла',
         average_rating: null,
         image_link: 'https://www.fiesta.ru/uploads/slider_image/image/203833/v880_ot-vdnx-do-ostankino.jpg',
         location: 'Москва',
@@ -26,6 +28,7 @@ module.exports = {
       },
       {
         title: 'Битцевский Парк',
+        description: 'Прекрасный маршрут по живописному парку для выходного дня блаблабла',
         average_rating: null,
         image_link: 'https://cdn.pacer.cc/route/screenshot/osm_way_303650309.png',
         location: 'Москва',
