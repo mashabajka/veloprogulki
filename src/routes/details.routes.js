@@ -2,7 +2,7 @@ const detailsRouter = require('express').Router();
 const renderTemplate = require('../utils/renderTemplate');
 const DetailsPage = require('../views/pages/DetailsPage.jsx');
 
-const { User, Trail, UserTrail } = require('../../db/models');
+const { User, Trail, UserTrail, Comment } = require('../../db/models');
 
 detailsRouter.get('/:id', async (req, res) => {
   const { login } = req.session;
@@ -10,25 +10,48 @@ detailsRouter.get('/:id', async (req, res) => {
     const { id } = req.params;
     const trail = await Trail.findOne(
       { where: { id },
-        include: [{
+        include: {
           model: User,
           attributes: ['login'],
-        }] },
+
+        } },
     );
-    // const comments = await UserTrail.findAll({
-    //   where: { trail_id: id },
-    //   include: [{
-    //     model: User,
-    //     attributes: ['login'], // Автор комментария
-    //   }],
-    // });
-    //! renderTemplate(DetailsPage, { login, trail, comments }, res);  Закомментировала передачу comments в пропсы, чтобы без них пока работало
-    renderTemplate(DetailsPage, { login, trail }, res);
+    const comments = await Comment.findAll({
+      where: { trail_id: id },
+      include: {
+        model: User,
+        attributes: ['login'], // Автор комментария
+      },
+    });
+    renderTemplate(DetailsPage, { login, trail, comments }, res);
+    // renderTemplate(DetailsPage, { login, trail }, res);
   } catch (error) {
     console.log('Error on detailsRouter.get() ====>>>>', error);
   }
 });
 
+detailsRouter.put('/:id', async (req, res) => {
+  try {
+    const { login } = req.session;
+    const { id } = req.params;
+    const { text } = req.body;
+    const user = await User.findOne({ where: { login } });
+    console.log(user);
+    const newComment = await Comment.create({
+      trail_id: id,
+      text,
+      user_id: user.id,
+    }, {
+      returning: true,
+      plain: true,
+    });
+
+    console.log(newComment);
+    res.json({ status: 'success', newComment });
+  } catch (error) {
+    res.json('ОШИБКА ПРИ ДОБАВЛЕНИИ КОММЕНТАРИЯ');
+  }
+});
 
 detailsRouter.post('/newrating', async (req, res) => {
   const { login } = req.session;
