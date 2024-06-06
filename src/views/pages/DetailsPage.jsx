@@ -9,7 +9,7 @@ function DetailsPage({ login, trail, comments, userRating }) {
     <>
       <Layout login={login}>
         <div className='mainDivTrail'>
-          <Trail trail={trail} />
+          <TrailDetails trail={trail} />
 
           {/* Показывать ratingPart и addCommentPart только при наличии логина */}
           {login && (

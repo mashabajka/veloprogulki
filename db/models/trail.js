@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     image_link: DataTypes.STRING,
     location: DataTypes.STRING,
     distance: DataTypes.FLOAT,
-    trail_data: DataTypes.JSON,
+    coordinates: DataTypes.JSON,
     trail_center: DataTypes.STRING,
     trail_zoom: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,

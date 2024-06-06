@@ -93,9 +93,6 @@ regForm.addEventListener('submit', async (e) => {
       }
       if (result.regErr) {
         errRegMsg.innerText = result.regErr;
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
       }
     } catch (error) {
       console.log(error);

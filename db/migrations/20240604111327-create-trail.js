@@ -31,7 +31,7 @@ module.exports = {
         allowNull: true,
         type: Sequelize.FLOAT,
       },
-      trail_data: {
+      coordinates: {
         allowNull: true,
         type: Sequelize.JSON,
       },
