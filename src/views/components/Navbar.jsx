@@ -7,7 +7,7 @@ module.exports = function Navbar({ login }) {
       {login ? (
         <nav className="navbar bg-body-tertiary p-0" >
           <div className="container-fluid" >
-            <a id='navbarNormal' className="navbar-brand me-auto p-2" href="/" style={{color: 'white'}}>
+            <a id='navbarNormal' className="navbar-brand me-auto p-2" href="/" style={{ color: 'white' }}>
               <img src="/assets/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{ marginRight: '10px' }}/>
               Привет, {login}! Это твой Velo Trail ❤️
             </a>
@@ -22,8 +22,8 @@ module.exports = function Navbar({ login }) {
         </nav>
       ) : (<nav className="navbar bg-body-tertiary p-0">
         <div className="container-fluid" >
-          <a className="navbar-brand me-auto p-2" href="/">
-            <img src="/assets/icon_navbar1.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{ marginRight: '10px' }}/>
+          <a className="navbar-brand me-auto p-2" href="/" style={{ color: 'white' }}>
+            <img src="/assets/icon_navbar.png" alt="Logo" width="30" height="30" className="d-inline-block align-text-center" style={{ marginRight: '10px' }}/>
             Velo Trail
           </a>
 
@@ -42,7 +42,7 @@ module.exports = function Navbar({ login }) {
                   <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
                   <div id="passwordHelp" className="form-text">Забыли пароль? Свяжитесь с администратором сайта.</div>
                 </div>
-                <button type="submit" className="btn btn-outline-light">Отправить</button>
+                <button type="submit" className="btn btn-outline-dark">Отправить</button>
               </form>
             </div>
           </dialog>
