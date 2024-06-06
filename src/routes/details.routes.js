@@ -29,20 +29,6 @@ detailsRouter.get('/:id', async (req, res) => {
   }
 });
 
-// detailsRouter.post('/newrating', async (req, res) => {
-//   const { login } = req.session;
-//   const user = await User.findOne({ where: { login } });
-//   try {
-//     const { average_rating, id } = req.body;
-//     console.log('-______________-', req.body);
-
-//     const newEntry = await UserTrail.create({
-//       user_rating: average_rating, user_id: user.id, trail_id: id });
-//   } catch (error) {
-//     console.log('Error on detailsRouter.post() ====>>>>', error);
-//     res.status(500).send('Error creating star');
-//   }
-// });
 
 detailsRouter.post('/newrating', async (req, res) => {
   const { login } = req.session;
