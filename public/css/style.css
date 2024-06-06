@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     width: 45px;
-    height: 20px;
+    height: 25px;
     position: absolute;
     top: 5px;
     right: 5px;
@@ -70,4 +70,48 @@
         display: inline;
     }
 
+}
+.ratingPart, .addCommentPart, .oldComments {
+    margin-top: 40px;
+}
+
+#commentForm {
+    width: 500px;
+}
+
+.commentInput {
+    width: 500px;
+    height: 50px;
+}
+
+.ratingContainer {
+    display: inline-flex;
+    /* Переворот, чтобы окрашивались не все последующие, а все предыдущие звёзды */
+    flex-direction: row-reverse;
+}
+
+.ratingInput {
+    color: #dcdcdc;
+    font-size: 50px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Затрагиваем элемент, на котором ховер и все последующие */
+.ratingInput:hover,
+.ratingInput:hover ~ .ratingInput {
+    color: rgb(232, 201, 45);
+}
+
+.ratingContainer[data-total-value="1"] .ratingInput:nth-child(n + 10),
+.ratingContainer[data-total-value="2"] .ratingInput:nth-child(n + 9),
+.ratingContainer[data-total-value="3"] .ratingInput:nth-child(n + 8),
+.ratingContainer[data-total-value="4"] .ratingInput:nth-child(n + 7),
+.ratingContainer[data-total-value="5"] .ratingInput:nth-child(n + 6),
+.ratingContainer[data-total-value="6"] .ratingInput:nth-child(n + 5),
+.ratingContainer[data-total-value="7"] .ratingInput:nth-child(n + 4),
+.ratingContainer[data-total-value="8"] .ratingInput:nth-child(n + 3),
+.ratingContainer[data-total-value="9"] .ratingInput:nth-child(n + 2),
+.ratingContainer[data-total-value="10"] .ratingInput:nth-child(n + 1) {
+    color: gold;
 }

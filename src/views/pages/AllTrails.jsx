@@ -13,7 +13,6 @@ module.exports = function AllTrail({login, trails}) {
       </div>
   </main>
       </Layout>
-      </>
-    )
-   
-}
+    </>
+  );
+};
