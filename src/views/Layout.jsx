@@ -19,7 +19,7 @@ module.exports = function Layout({ children, login}) {
           crossOrigin="anonymous"
         />
               <script defer src='/js/application.js' />
-
+              <title>Velo Trail</title>
       </head>
       <body>
         <header> 

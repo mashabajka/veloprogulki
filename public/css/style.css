@@ -15,6 +15,15 @@
     margin-top: 40px;
 }
 
+.ratingContainer {
+    display: flex;
+    align-items: center;
+}
+
+.existingRatingMessage {
+    margin-left: 40px;
+}
+
 #commentForm {
     width: 500px;
 }
@@ -24,7 +33,7 @@
     height: 50px;
 }
 
-.ratingContainer {
+.starsContainer {
     display: inline-flex;
     /* Переворот, чтобы окрашивались не все последующие, а все предыдущие звёзды */
     flex-direction: row-reverse;
@@ -43,15 +52,15 @@
     color: rgb(232, 201, 45);
 }
 
-.ratingContainer[data-total-value="1"] .ratingInput:nth-child(n + 10),
-.ratingContainer[data-total-value="2"] .ratingInput:nth-child(n + 9),
-.ratingContainer[data-total-value="3"] .ratingInput:nth-child(n + 8),
-.ratingContainer[data-total-value="4"] .ratingInput:nth-child(n + 7),
-.ratingContainer[data-total-value="5"] .ratingInput:nth-child(n + 6),
-.ratingContainer[data-total-value="6"] .ratingInput:nth-child(n + 5),
-.ratingContainer[data-total-value="7"] .ratingInput:nth-child(n + 4),
-.ratingContainer[data-total-value="8"] .ratingInput:nth-child(n + 3),
-.ratingContainer[data-total-value="9"] .ratingInput:nth-child(n + 2),
-.ratingContainer[data-total-value="10"] .ratingInput:nth-child(n + 1) {
+.starsContainer[data-total-value="1"] .ratingInput:nth-child(n + 10),
+.starsContainer[data-total-value="2"] .ratingInput:nth-child(n + 9),
+.starsContainer[data-total-value="3"] .ratingInput:nth-child(n + 8),
+.starsContainer[data-total-value="4"] .ratingInput:nth-child(n + 7),
+.starsContainer[data-total-value="5"] .ratingInput:nth-child(n + 6),
+.starsContainer[data-total-value="6"] .ratingInput:nth-child(n + 5),
+.starsContainer[data-total-value="7"] .ratingInput:nth-child(n + 4),
+.starsContainer[data-total-value="8"] .ratingInput:nth-child(n + 3),
+.starsContainer[data-total-value="9"] .ratingInput:nth-child(n + 2),
+.starsContainer[data-total-value="10"] .ratingInput:nth-child(n + 1) {
     color: gold;
 }

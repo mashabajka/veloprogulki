@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ratingInputsArray.forEach((item) => item.addEventListener('click', async () => {
     const { inputValue } = item.dataset;
-    const { trailId } = item.closest('.ratingContainer').dataset;
+    const { trailId } = item.closest('.starsContainer').dataset;
 
     // Обновляем значение totalValue у родительского элемента
     item.parentNode.dataset.totalValue = inputValue;

@@ -29,7 +29,6 @@ detailsRouter.get('/:id', async (req, res) => {
   }
 });
 
-
 detailsRouter.post('/newrating', async (req, res) => {
   const { login } = req.session;
   const user = await User.findOne({ where: { login } });
@@ -37,6 +36,18 @@ detailsRouter.post('/newrating', async (req, res) => {
     const { rating, trailId } = req.body;
 
     // console.log(rating, trailId);
+
+    // Проверить, существует ли запись с рейтингом от текущего пользователя к выбранной карточке
+    const existingRating = await UserTrail.findOne({
+      where: {
+        user_id: user.id,
+        trail_id: trailId,
+      },
+    });
+
+    if (existingRating) {
+      return res.status(400).json({ message: 'Текущий пользователь уже оставлял рейтинг для этой карточки' });
+    }
 
     // Создать новую запись в UserTrail
     await UserTrail.create({
