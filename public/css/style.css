@@ -41,6 +41,11 @@
     display: none;
 }
 
+.mainDivTrail {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
 @media (max-width: 850px) {
 
     .posts {
