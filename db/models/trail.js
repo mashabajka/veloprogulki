@@ -21,15 +21,13 @@ module.exports = (sequelize, DataTypes) => {
   }
   Trail.init({
     title: DataTypes.STRING,
-    average_rating: DataTypes.INTEGER,
+    average_rating: DataTypes.REAL,
     image_link: DataTypes.STRING,
     location: DataTypes.STRING,
-    distance: DataTypes.INTEGER,
-    start_lat: DataTypes.STRING,
-    start_lon: DataTypes.STRING,
-    custom_points: DataTypes.JSON,
-    finish_lat: DataTypes.STRING,
-    finish_lon: DataTypes.STRING,
+    distance: DataTypes.FLOAT,
+    trail_data: DataTypes.JSON,
+    trail_center: DataTypes.STRING,
+    trail_zoom: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
   }, {
     sequelize,

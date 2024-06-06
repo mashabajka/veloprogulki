@@ -14,7 +14,6 @@ const dbConnectionCheck = require('./src/middlewares/dbCheck');
 const indexRouter = require('./src/routes/index.routes');
 const regRouter = require('./src/routes/reg.routes');
 const trailsRouter = require('./src/routes/allTrails.routes');
-// const loginRouter = require('./src/routes/login.routes');
 const profileRouter = require('./src/routes/profile.routes');
 
 const app = express();
@@ -39,7 +38,6 @@ app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(session(sessionConfig));
 app.use(dbConnectionCheck);
 
-// app.use('/login', secureRoute, loginRouter);
 app.use('/registration', secureRoute, regRouter);
 app.use('/alltrails', trailsRouter);
 app.use('/profile', profileRouter);

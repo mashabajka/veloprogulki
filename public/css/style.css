@@ -1,0 +1,40 @@
+.add-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+.add-title {
+  margin-bottom: 20px;
+}
+
+.lat-lon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+}
+
+.map {
+  width: 500px;
+  height: 500px;
+  background-color: #333;
+  margin-bottom: 20px;
+}
+
+.trail-submit {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.add-new-map-form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}

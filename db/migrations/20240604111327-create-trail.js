@@ -13,32 +13,31 @@ module.exports = {
       },
       average_rating: {
         allowNull: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.REAL,
       },
       image_link: {
+        allowNull: true,
         type: Sequelize.STRING,
       },
       location: {
+        allowNull: true,
         type: Sequelize.STRING,
       },
       distance: {
-        type: Sequelize.INTEGER,
+        allowNull: true,
+        type: Sequelize.FLOAT,
       },
-      start_lat: {
-        type: Sequelize.STRING,
-      },
-      start_lon: {
-        type: Sequelize.STRING,
-      },
-      custom_points: {
+      trail_data: {
         allowNull: true,
         type: Sequelize.JSON,
       },
-      finish_lat: {
+      trail_center: {
+        allowNull: true,
         type: Sequelize.STRING,
       },
-      finish_lon: {
-        type: Sequelize.STRING,
+      trail_zoom: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
       },
       user_id: {
         type: Sequelize.INTEGER,

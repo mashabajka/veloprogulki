@@ -5,13 +5,30 @@
         "es2021": true,
         "node": true
     },
-    "extends": "airbnb-base",
+    "extends": [
+        "airbnb-base",
+        "plugin:react/recommended"
+    ],
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
+    "plugins": [
+        "react"
+    ],
     "rules": {
         "camelcase": "off",
         "object-curly-newline": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "react/jsx-indent": ["error", 2],
+        "react/jsx-indent-props": ["error", 2]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
