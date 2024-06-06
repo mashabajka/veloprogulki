@@ -8,7 +8,7 @@ module.exports = function AllTrail({login, trails}) {
     <Layout login={login} >
     <script defer src="js/allTrails.js"/>
     <main role="main">
-    <div className="posts" style={{ display:'flex', flexDirection:'row', justifyContent:'space-evenly', marginTop:'20px'}}>
+    <div className="posts" >
         {trails.map((trail) => <Trail key={trail.id} trail={trail} login={login}/>)}
       </div>
   </main>

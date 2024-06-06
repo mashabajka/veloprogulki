@@ -11,6 +11,67 @@
     color: white;
 }
 
+.container-fluid {
+    background-color: #427a55
+}
+
+#showTrailsBtn1,
+#showTrailsBtn2 {
+    background-color: #427a55;
+    color: white;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0px 10px;
+    width: 240px;
+}
+
+.posts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#navbarMini {
+    display: none;
+}
+
+.homePhoneSize {
+    display: none;
+}
+
+@media (max-width: 850px) {
+
+    .posts {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+}
+
+@media (max-width: 730px) {
+    .homeNormalSize {
+        display: none;
+    }
+
+    .homePhoneSize {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 475px) {
+    #navbarNormal {
+        display: none;
+    }
+
+    #navbarMini {
+        display: inline;
+    }
+
+}
 .ratingPart, .addCommentPart, .oldComments {
     margin-top: 40px;
 }

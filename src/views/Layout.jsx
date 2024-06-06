@@ -20,6 +20,7 @@ module.exports = function Layout({ children, login}) {
         />
               <script defer src='/js/application.js' />
               <title>Velo Trail</title>
+
       </head>
       <body>
         <header> 

@@ -20,11 +20,7 @@ module.exports = function Registration({login}) {
     <input name="password" type="password" style={{width:'300px'}} className="form-control" id="exampleInputPasswordReg" />
     <div id="passwordHelp" className="form-text">Мы никому не передадим ваш пароль и сами не увидим</div>
   </div>
-  <div className="mb-3  form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-    <label className="form-check-label" htmlFor="exampleCheck1">Согласен на обработку данных</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Отправить</button>
+  <button type="submit" className="btn btn-outline-dark">Отправить</button>
 </form>
 </div>
       </Layout>
