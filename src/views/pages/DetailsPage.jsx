@@ -2,7 +2,8 @@ const React = require('react');
 const Layout = require('../Layout');
 const Trail = require('../components/Trail');
 
-function DetailsPage({ login, trail }) {
+function DetailsPage({ login, trail, userRating }) {
+  console.log('***************', userRating);
   return (
     <>
       <Layout login={login}>
@@ -11,7 +12,7 @@ function DetailsPage({ login, trail }) {
         <h3>Оцените маршрут</h3>
 
         <div className="ratingContainer">
-        <div className="starsContainer" data-total-value="0" data-trail-id={trail.id}>
+        <div className="starsContainer" data-total-value={userRating} data-trail-id={trail.id}>
           <div className="ratingInput" data-input-value="10">★</div>
           <div className="ratingInput" data-input-value="9">★</div>
           <div className="ratingInput" data-input-value="8">★</div>
@@ -23,7 +24,7 @@ function DetailsPage({ login, trail }) {
           <div className="ratingInput" data-input-value="2">★</div>
           <div className="ratingInput" data-input-value="1">★</div>
         </div>
-        <div className="existingRatingMessage">O NO</div>
+        <div className="existingRatingMessage"></div>
         </div>
 
         </div>

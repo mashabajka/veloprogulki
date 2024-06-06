@@ -1,19 +1,18 @@
-// const ratingInputsList = document.querySelectorAll('.ratingInput');
-// const ratingInputsArray = Array.from(ratingInputsList);
-
-// ratingInputsArray.forEach((item) => item.addEventListener('click', () => {
-//   const { inputValue } = item.dataset;
-//   console.log(inputValue);
-//   item.parentNode.dataset.totalValue = item.dataset.inputValue;
-// }));
-
 document.addEventListener('DOMContentLoaded', () => {
   const ratingInputsArray = Array.from(document.querySelectorAll('.ratingInput'));
+  const existingRatingMessage = document.querySelector('.existingRatingMessage');
 
   ratingInputsArray.forEach((item) => item.addEventListener('click', async () => {
     const { inputValue } = item.dataset;
     const { trailId } = item.closest('.starsContainer').dataset;
 
+    if (item.parentNode.dataset.totalValue !== '0') {
+      existingRatingMessage.innerText = 'Вы уже оставляли оценку для этого маршрута!';
+      setTimeout(() => {
+        existingRatingMessage.innerText = '';
+      }, 1500);
+      return;
+    }
     // Обновляем значение totalValue у родительского элемента
     item.parentNode.dataset.totalValue = inputValue;
 
@@ -29,12 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify({ rating: inputValue, trailId }),
       });
 
-      if (response.ok) {
-        const updatedTrail = await response.json();
-        document.querySelector('.rating').textContent = `${updatedTrail.average_rating} ★`;
-      } else {
-        console.error('Не получилось обновить рейтинг');
+      const result = await response.json();
 
+      if (response.ok) {
+        document.querySelector('.rating').textContent = `${result.average_rating}★`;
       }
     } catch (error) {
       console.error('Error:', error);

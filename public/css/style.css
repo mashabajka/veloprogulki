@@ -83,6 +83,9 @@
 
 .existingRatingMessage {
     margin-left: 40px;
+    font-size: 16px;
+    font-family: inherit;
+    color: rgb(157, 31, 31);
 }
 
 #commentForm {

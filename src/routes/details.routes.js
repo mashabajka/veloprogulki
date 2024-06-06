@@ -15,15 +15,20 @@ detailsRouter.get('/:id', async (req, res) => {
           attributes: ['login'],
         }] },
     );
-    // const comments = await UserTrail.findAll({
-    //   where: { trail_id: id },
-    //   include: [{
-    //     model: User,
-    //     attributes: ['login'], // Автор комментария
-    //   }],
-    // });
-    //! renderTemplate(DetailsPage, { login, trail, comments }, res);  Закомментировала передачу comments в пропсы, чтобы без них пока работало
-    renderTemplate(DetailsPage, { login, trail }, res);
+
+    const user = await User.findOne({ where: { login } });
+    const userRating = user ? await UserTrail.findOne({
+      where: {
+        user_id: user.id,
+        trail_id: id,
+      },
+      attributes: ['user_rating'],
+    }) : null;
+    // console.log('##############', userRating.user_rating);
+
+
+    // renderTemplate(DetailsPage, { login, trail }, res);
+    renderTemplate(DetailsPage, { login, trail, userRating: userRating ? userRating.user_rating : 0 }, res);
   } catch (error) {
     console.log('Error on detailsRouter.get() ====>>>>', error);
   }
@@ -46,7 +51,7 @@ detailsRouter.post('/newrating', async (req, res) => {
     });
 
     if (existingRating) {
-      return res.status(400).json({ message: 'Текущий пользователь уже оставлял рейтинг для этой карточки' });
+      return res.status(400).json({ ratingError: 'Вы уже оставляли оценку для этого маршрута!' });
     }
 
     // Создать новую запись в UserTrail
