@@ -4,36 +4,52 @@ const Layout = require('../Layout');
 module.exports = function Profile({ login }) {
   return (
     <Layout login={login}>
-      <h1>Добавить новый маршрут</h1>
+      <h1 className="add-title">Добавить новый маршрут</h1>
+      <div className="add-container">
+        <div className="info-container">
 
-      <form method="post" action="/">
-        <label htmlFor="addTrailName">Title:</label>
-        <input name="title" type="text" id="addTrailName" className="trail-title" />
+          <form method="post" action="/" className="add-new-form">
+            <label className="mar-left-right-10" htmlFor="addTrailName">Название маршрута:</label>
+            <input name="title" type="text" id="addTrailName" className="trail-title" />
 
-        <div>
-          <h3>Координаты старта</h3>
-          <label htmlFor="addTrailStartLat">Широта:</label>
-          <input name="start_lat" type="text" id="addTrailStartLat" className="trail-start-lat" />
+            <input hidden name="coordinates" id="coordinates" type="text" />
 
-          <label htmlFor="addTrailStartLon">Долгота:</label>
-          <input name="start_lon" type="text" id="addTrailStartLon" className="trail-start-lon" />
+            <label className="mar-left-right-10" htmlFor="addLocation">Город:</label>
+            <input name="location" type="text" id="addLocation" className="trail-location" />
+
+            <label className="mar-left-right-10" htmlFor="editEntryDescription">Описание:</label>
+            <textarea name="description" id="editEntryDescription"></textarea>
+
+            <label htmlFor="imageUpload" className="image-upload">
+              Загрузить фотографии
+            </label>
+            <input
+              id="imageUpload"
+              name="images"
+              type="file"
+              multiple
+              // accept="image/*"
+              style={{ display: 'none' }}
+              />
+
+            <div className="gallery">
+
+            </div>
+
+            <button type="submit" className="trail-submit" >Добавить маршрут</button>
+
+          </form>
         </div>
 
-        <div>
-          <h3>Координаты финиша</h3>
-          <label htmlFor="addTrailFinishLat">Широта:</label>
-          <input name="finish_lat" type="text" id="addTrailFinishLat" className="trail-finish-lat" />
-
-          <label htmlFor="addTrailFinishLon">Долгота:</label>
-          <input name="finish_lon" type="text" id="addTrailFinishLon" className="trail-finish-lon" />
+        <div className="map-container">
+          <div id="map" className="map"></div>
         </div>
 
-        <input
-          type="submit"
-          value="Добавить"
-          className="trail-submit"
-        />
-      </form>
+      </div>
+      <script defer src="https://api-maps.yandex.ru/v3/?apikey=3a098667-d8d9-4dec-a107-b8a3dca12725&lang=ru_RU"></script>
+      <script defer src="/js/addTrail.js"></script>
+      {/* <script defer src="/js/showTrail.js"></script> */}
+      <script defer src="/js/uploadSuccess.js" />
     </Layout>
   );
 };
