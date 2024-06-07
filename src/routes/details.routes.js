@@ -2,7 +2,7 @@ const detailsRouter = require('express').Router();
 const renderTemplate = require('../utils/renderTemplate');
 const DetailsPage = require('../views/pages/DetailsPage.jsx');
 
-const { User, Trail, UserTrail, Comment } = require('../../db/models');
+const { User, Trail, Rating, Comment } = require('../../db/models');
 
 detailsRouter.get('/:id', async (req, res) => {
   try {
@@ -31,7 +31,7 @@ detailsRouter.get('/:id', async (req, res) => {
     }
 
     const user = await User.findOne({ where: { login } });
-    const userRating = user ? await UserTrail.findOne({
+    const userRating = user ? await Rating.findOne({
       where: {
         user_id: user.id,
         trail_id: id,
@@ -77,7 +77,7 @@ detailsRouter.post('/newrating', async (req, res) => {
     // console.log(rating, trailId);
 
     // Проверить, существует ли запись с рейтингом от текущего пользователя к выбранной карточке
-    const existingRating = await UserTrail.findOne({
+    const existingRating = await Rating.findOne({
       where: {
         user_id: user.id,
         trail_id: trailId,
@@ -88,15 +88,15 @@ detailsRouter.post('/newrating', async (req, res) => {
       return res.status(400).json({ ratingError: 'Вы уже оставляли оценку для этого маршрута!' });
     }
 
-    // Создать новую запись в UserTrail
-    await UserTrail.create({
+    // Создать новую запись в Rating
+    await Rating.create({
       user_id: user.id,
       trail_id: trailId,
       user_rating: rating,
     });
 
     // Пересчитать средний рейтинг
-    const ratings = await UserTrail.findAll({
+    const ratings = await Rating.findAll({
       where: { trail_id: trailId },
       attributes: ['user_rating'],
     });

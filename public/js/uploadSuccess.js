@@ -12,9 +12,25 @@ imageUpload?.addEventListener('change', async (event) => {
     const imageObjectUrl = URL.createObjectURL(file);
     const imgElement = document.createElement('img');
     imgElement.style.maxWidth = '150px';
+    imgElement.style.marginLeft = '12px';
+    imgElement.style.marginRight = '12px';
+    imgElement.style.borderRadius = '5px';
     imgElement.src = imageObjectUrl;
 
-    gallery.appendChild(imgElement);
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '❌'; // Emoji for a cross mark
+    deleteButton.className = 'delete-button';
+    deleteButton.addEventListener('click', () => {
+      gallery.removeChild(imageContainer);
+      URL.revokeObjectURL(imageObjectUrl); // Free up the resources
+    });
+
+    const imageContainer = document.createElement('div');
+    imageContainer.className = 'image-container';
+    imageContainer.appendChild(imgElement);
+    imageContainer.appendChild(deleteButton);
+
+    gallery.appendChild(imageContainer);
   }
 });
 

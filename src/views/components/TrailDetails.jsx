@@ -26,7 +26,7 @@ module.exports = function TrailDetails({ trail }) {
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">Город: {trail.location}</li>
-        <li className="list-group-item">Длина маршрута: {trail.distance}</li>
+        <li className="list-group-item">Длина маршрута: {trail.distance} км</li>
         <li className="list-group-item">Автор маршрута: {trail.User.login}</li>
       </ul>
       

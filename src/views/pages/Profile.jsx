@@ -4,9 +4,9 @@ const Layout = require('../Layout');
 module.exports = function Profile({ login }) {
   return (
     <Layout login={login}>
-      <h1 className="add-title">Добавить новый маршрут</h1>
       <div className="add-container">
         <div className="info-container">
+          <h3 className="add-title">Добавить новый маршрут</h3>
 
           <form method="post" action="/" className="add-new-form">
             <label className="mar-left-right-10" htmlFor="addTrailName">Название маршрута:</label>
@@ -18,7 +18,9 @@ module.exports = function Profile({ login }) {
             <input name="location" type="text" id="addLocation" className="trail-location" />
 
             <label className="mar-left-right-10" htmlFor="editEntryDescription">Описание:</label>
-            <textarea name="description" id="editEntryDescription"></textarea>
+            <textarea name="description" id="editEntryDescription" className="trail-text"></textarea>
+
+            <div className="gallery"></div>
 
             <label htmlFor="imageUpload" className="image-upload">
               Загрузить фотографии
@@ -31,10 +33,6 @@ module.exports = function Profile({ login }) {
               // accept="image/*"
               style={{ display: 'none' }}
               />
-
-            <div className="gallery">
-
-            </div>
 
             <button type="submit" className="trail-submit" >Добавить маршрут</button>
 

@@ -104,7 +104,7 @@ profileRouter.get('/newtrail/:id', async (req, res) => {
     const user_id = user.id;
 
     const trail_id = req.params.id;
-    const newTrail = await Trail.findByPk(trail_id);
+    const newTrail = await Trail.findByPk(trail_id, { include: User });
     const plainNewTrail = newTrail.get({ plain: true });
 
     renderTemplate(NewTrail, { plainNewTrail, login }, res);

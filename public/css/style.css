@@ -43,9 +43,20 @@
     display: none;
 }
 
+/* .mainDivTrail {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 30px;
+} */
+
 .mainDivTrail {
-    margin-top: 20px;
-    margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  width: 50vw;
+  margin-top: 25px;
+  margin-left: 25px;
+  justify-content: space-between;
 }
 
 @media (max-width: 850px) {
@@ -78,42 +89,49 @@
     }
 
 }
-.ratingPart, .addCommentPart, .oldComments {
-    margin-top: 25px;
+
+/* удалил .ratingPart, ниже */
+
+.addCommentPart, .oldComments {
+  margin-top: 25px;
 }
 
 .ratingContainer {
-    display: flex;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .existingRatingMessage {
-    margin-left: 40px;
-    font-size: 16px;
-    font-family: inherit;
-    color: rgb(157, 31, 31);
+  height: 20px;
+  margin-top: 10px;
+  margin-left: 0;
+  font-size: 16px;
+  font-family: inherit;
+  color: rgb(157, 31, 31);
+  width: 100%;
+  text-align: left;
 }
 
 #commentForm {
-    width: 500px;
+  width: 500px;
 }
 
 .commentInput {
-    width: 500px;
-    height: 50px;
+  width: 500px;
+  height: 50px;
 }
 
 .starsContainer {
-    display: inline-flex;
-    /* Переворот, чтобы окрашивались не все последующие, а все предыдущие звёзды */
-    flex-direction: row-reverse;
+  display: inline-flex;
+  /* Переворот, чтобы окрашивались не все последующие, а все предыдущие звёзды */
+  flex-direction: row-reverse;
 }
 
 .ratingInput {
-    color: #dcdcdc;
-    font-size: 50px;
-    cursor: pointer;
-    transition: 0.2s;
+  color: #dcdcdc;
+  font-size: 50px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 /* Затрагиваем элемент, на котором ховер и все последующие */
@@ -134,3 +152,143 @@
 .starsContainer[data-total-value="10"] .ratingInput:nth-child(n + 1) {
     color: gold;
 }
+
+.add-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  text-align: center;
+}
+
+.info-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  width: 50vw;
+  align-items: center;
+  z-index: 1;
+}
+  
+.add-title {
+  margin-bottom: 20px;
+}
+  
+.map {
+  position: absolute;
+  right: 0;
+  width: 50vw;
+  height: 92vh;
+  background-color: #333;
+  margin-bottom: 20px;
+}
+  
+.add-new-form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  margin-left: 50px;
+  align-items: center;
+}
+    
+.image-upload, .trail-submit, .detail-trail-submit {
+  width: 500px;
+  height: 50px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #427a55;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 40px;
+}
+
+.image-upload {
+  margin-top: 10px;
+}
+
+.detail-trail-submit {
+  width: 300px;
+  height: 50px;
+}
+
+.image-upload:hover, .trail-submit:hover, .detail-trail-submit:hover {
+  background-color: #365e44;
+}
+
+.trail-title, .trail-location, .trail-text {
+  width: 500px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+  
+.trail-text {
+  height: 100px;
+  /* resize: none !important; */
+}
+
+.gallery {
+  display: flex;
+  width: 500px;
+  min-height: 150px;
+  border: none;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery img {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.delete-button {
+  position: absolute;
+  top: 0px;
+  right: 12px;
+  width: 40px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.mainDetailsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.ratingCommentContainer {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  align-items: flex-start;
+}
+
+.starsContainer {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
+.starsMessageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Выравнивание элементов по левому краю */
+}
+

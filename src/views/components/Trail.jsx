@@ -25,7 +25,7 @@ module.exports = function Trail({ trail }) {
         <>
           <img src={trail.image_link} className="card-img-top" alt="карта" style={{ width: '300px', height: '180px' }} />
           <div className="card-body">
-            <h5 className="card-title">{trail.title}</h5>
+            <h5 className="card-title"><a href={`/details/${trail.id}`} className="card-link">{trail.title}</a></h5>
             <p className="card-text">{trail.description}</p>
           </div>
           <ul className="list-group list-group-flush">
@@ -33,9 +33,6 @@ module.exports = function Trail({ trail }) {
             <li className="list-group-item">Длина маршрута: {trail.distance}</li>
             <li className="list-group-item">Автор маршрута: {trail.User.login}</li>
           </ul>
-          <div className="card-body">
-            <a href={`/details/${trail.id}`} className="card-link">Подробнее о маршруте</a>
-          </div>
         </>
       )}
     </div>

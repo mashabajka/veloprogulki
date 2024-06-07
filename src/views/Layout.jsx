@@ -10,8 +10,8 @@ module.exports = function Layout({ children, login}) {
         <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link rel="icon" href="/assets/favicon.ico?" />
-        <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/normalize.css" />
+        <link rel="stylesheet" href="/css/style.css" />
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
           rel="stylesheet"

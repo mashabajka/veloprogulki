@@ -5,6 +5,8 @@ async function initMap() {
   const split = urlHref.split('/');
   const trail_id = split[split.length - 1];
 
+  console.log(trail_id);
+
   const response = await fetch(`/profile/coordinates/${trail_id}`, {
     method: 'GET',
   });
@@ -12,6 +14,8 @@ async function initMap() {
   const result = await response.json();
 
   const { coordinates } = result;
+
+  console.log(typeof coordinates);
 
   const waypoints = coordinates.map((waypoint) => waypoint.reverse().join(',')).join('|');
 
@@ -59,6 +63,22 @@ async function initMap() {
     points = [...points, ...dataArray];
   }
 
+  //! Функция, возвращающая среднюю точку маршрута для центра карты
+  function findCenter(route) {
+    let sumLat = 0;
+    let sumLng = 0;
+
+    route.forEach((point) => {
+      sumLat += point[0];
+      sumLng += point[1];
+    });
+    const avgLat = sumLat / route.length;
+    const avgLng = sumLng / route.length;
+    return [avgLng, avgLat];
+  }
+
+  const midpoint = findCenter(coordinates);
+
   await ymaps3.ready;
 
   const { YMap, YMapDefaultSchemeLayer, YMapFeature, YMapDefaultFeaturesLayer } = ymaps3;
@@ -67,8 +87,8 @@ async function initMap() {
     document.getElementById('map'),
     {
       location: {
-        center: [37.621335, 55.754506],
-        zoom: 10,
+        center: midpoint, //! midpoint - значение из функции findCenter
+        zoom: 14,
       },
     },
     [

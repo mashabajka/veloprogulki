@@ -3,9 +3,6 @@ const React = require('react');
 module.exports = function Navbar({ login }) {
   return (
     <>
-module.exports = function Navbar({ login }) {
-  return (
-    <>
 
       {login ? (
         <nav className="navbar bg-body-tertiary p-0" >
@@ -35,11 +32,6 @@ module.exports = function Navbar({ login }) {
               <form className='logForm'>
                 <button id="close-modal-btn" className="btn-close" aria-label="Закрыть" style={{ float: 'right', border: '0px' }}></button>
                 <h6 className='logErrMsg' />
-          <dialog style={{ padding: '0', borderRadius: '10px' }}>
-            <div id="modal-box" style={{ padding: '1rem' }}>
-              <form className='logForm'>
-                <button id="close-modal-btn" className="btn-close" aria-label="Закрыть" style={{ float: 'right', border: '0px' }}></button>
-                <h6 className='logErrMsg' />
 
                 <div className="mb-30">
                   <label htmlFor="exampleInputEmail1" className="form-label">Ваш email</label>
@@ -58,13 +50,6 @@ module.exports = function Navbar({ login }) {
           <button className="btn btn-outline-light me-2 p-2" id="show-modal-btn">Login</button>
 
           <a className="btn btn-outline-light me-2 p-2" type="button" href='/registration'>Registration</a>
-
-        </div>
-      </nav>
-      )}
-    </>
-  );
-};
 
         </div>
       </nav>
